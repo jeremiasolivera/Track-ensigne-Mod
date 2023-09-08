@@ -1,0 +1,23 @@
+{% extends 'plantilla/index.html' %}
+
+{% block content %}
+
+    <h3>Eliminar de los pacientes</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <h3>Estás seguro que quieres eliminar al usuario {{paciente.nombre}}</h3>   
+
+        <button type="submit">Eliminar Paciente</button>
+    </form>
+
+    <h2>Si quieres cancelar la acción: <a href="{% url 'pacientes' %}">Volver atras</a></h2>
+
+
+{% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+{% endif %}
+{% endblock %}

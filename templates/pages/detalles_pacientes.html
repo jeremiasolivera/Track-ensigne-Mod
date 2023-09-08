@@ -1,0 +1,14 @@
+{% extends 'plantilla/index.html' %}
+
+{% block content %}
+
+    <h3>Detalle de los pacientes</h3>
+    {% for pacientes in patients %}
+        <h2>{{pacientes.nombre}}</h2>
+        <h4>{{pacientes.edad}}</h4>
+        <h5>{{pacientes.informe_medico}}</h5>
+        <img src="{{pacientes.imagen.url}}" alt="" width="200" style="display: block;">
+        <a href="{% url 'eliminar_paciente' pacientes.pk %}">Eliminar Paciente</a>
+        <a href="{% url 'actualizar_paciente' pacientes.pk %}">Actualizar Paciente</a>
+    {% endfor %}
+{% endblock %}

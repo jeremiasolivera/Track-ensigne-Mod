@@ -1,0 +1,33 @@
+{% extends 'plantilla/index.html' %}
+
+{% block content %}
+
+{% if False in result %}
+<div class="alert alert-warning">
+    ¡Atención! Se ha detectado un rostro desconocido.
+</div>
+
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    <p>Cuanto tiempo esperar para enviar notificación</p>
+    <select name="tiempo_desconocido" id="">
+        <option value="5">5seg</option>
+        <option value="10">10seg</option>
+        <option value="15">15seg</option>
+        <option value="30">20seg</option>
+        <option value="1000">30seg</option>
+        <option value="1000">1min</option>
+        <option value="3000">3min</option>
+        <option value="5000">5min</option>
+        <option value="10000">10min</option>
+    </select>
+    <button type="submit">Iniciar Seguridad</button>
+</form>
+
+
+
+<!-- Aquí puedes mostrar el resto de la información o resultados -->
+
+{% endblock %}

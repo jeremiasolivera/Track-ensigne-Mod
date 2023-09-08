@@ -1,0 +1,42 @@
+{% extends 'plantilla/index.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<main class="container w-50 m-auto">
+    <h1>Track <span style="color: aquamarine;">Ensigne</span></h1>
+    <h3>Carga los datos de un paciente!.</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <!-- <label for="image">Selecciona una imagen:</label>
+    <input type="file" name="image" id="image" accept="image/*" required>
+
+    <label for="patient_name">Nombre del paciente:</label>
+    <input type="text"  id="patient_name" required autocomplete="false">
+
+    <label for="patient_name">Edad del paciente:</label>
+    <input type="number" name="patient_age" id="patient_name" required autocomplete="false">
+    
+    <label for="patient_name">Datos del paciente:</label>
+    <textarea type="text" name="patient_report" id="patient_name" required></textarea> -->
+
+    <div class="mb-3">
+        <label for="formFile" class="form-label">Imagen del Paciente</label>
+        <input class="form-control" name="image" type="file" id="formFile">
+      </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Nombre:</label>
+        <input type="text" class="form-control" name="patient_name" id="exampleFormControlInput1">
+      </div><div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Edad</label>
+        <input type="number" class="form-control" name="patient_age" id="exampleFormControlInput1" min="15" max="120" >
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Informe Médico</label>
+        <textarea class="form-control" name="patient_report" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+
+
+    <button type="submit" class="btn btn-primary">Registrar Paciente</button>
+</form>
+</main>
+{% endblock %}
